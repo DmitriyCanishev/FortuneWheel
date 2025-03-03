@@ -4,18 +4,6 @@
     {
         private TParentView _parentView = null;
 
-        protected TParentView ParentView { get; private set; }
-
-        protected override void Bind()
-        {
-            base.Bind();
-            ParentView = _parentView ??= GetComponentInParent<TParentView>();
-        }
-
-        protected override void Unbind()
-        {
-            base.Unbind();
-            ParentView = null;
-        }
+        protected TParentView ParentView => _parentView ??= GetComponentInParent<TParentView>();
     }
 }
