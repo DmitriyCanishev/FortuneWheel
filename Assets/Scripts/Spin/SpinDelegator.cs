@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Spin.Configs;
 using Spin.Type;
 using UnityEngine;
 using Utils;
@@ -18,12 +19,11 @@ namespace Spin
         private readonly IReadOnlyList<RewardType> _spinnerSectorTypes = null;
         private readonly IReadOnlyList<float> _sectorsProbabilities = null;
 
-        public SpinDelegator()
+        public SpinDelegator(SectorsDataSettings sectorsDataSettings)
         {
-            _sectorValues = new[] {5f, 2f, 1f, 10f, 3f, 4f, 0.3f, 0.5f};
-            _spinnerSectorTypes = new[]
-                {RewardType.Coins, RewardType.Bolt, RewardType.Lock, RewardType.Heart, RewardType.Star, RewardType.Coins, RewardType.Bolt, RewardType.Heart};
-            _sectorsProbabilities = new[] {0.5f, 0.3f, 0.4f, 0.2f, 0.25f, 0.5f, 0.4f, 0.3f};
+            _sectorValues = sectorsDataSettings.GetSectorsValues();
+            _spinnerSectorTypes = sectorsDataSettings.GetSpinSectorsTypes();
+            _sectorsProbabilities = sectorsDataSettings.GetSectorsProbability();
 
             var sectors = new List<SectorInfo>(_spinnerSectorTypes.Count);
             sectors.AddRange(
