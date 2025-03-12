@@ -13,9 +13,11 @@ namespace Spin
         [SerializeField] private Transform _spin = null;
 
         [SerializeField] private SpinSectorController[] _sectors = null;
-        [field: SerializeField] public SectorsTypesSettings SectorsTypeSettings { get; private set; }
+        [SerializeField] private SectorsDataSettings _sectorsDataSettings = null;
 
         [SerializeField] private bool _isSectorsClockwiseDirection = true;
+
+        [field: SerializeField] public SectorsTypesSettings SectorsTypeSettings { get; private set; }
 
         private SpinDelegator _spinDelegator = null;
         private EventSystem _eventSystem = null;
@@ -23,7 +25,7 @@ namespace Spin
         protected override void Awake()
         {
             base.Awake();
-            _spinDelegator = new SpinDelegator();
+            _spinDelegator = new SpinDelegator(_sectorsDataSettings);
             _eventSystem = EventSystem.current;
         }
 

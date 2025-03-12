@@ -7,7 +7,8 @@ Fortune Wheel in Unity (Simple way to adding into your game)
  - Create child into that page with name **Wheel** that will be container for rewards sectors
  - Create sectors into **Wheel** gameObject with component `SpinSectorController`
  - Create SO : **Assets->Create->Configs-Spin->SectorsTypeSettings**
- - Fill it with some needed rewards (types (Into `RewardType` you can edit rewards on what you need)
+ - Fill it with some needed reward types (Into `RewardType` you can edit rewards on what you need)
+ - Create SO : **Assets->Create->Configs-Spin->SectorsDataSettings** (Into it fill values of spin sectors)
  - Fill fields into SpinPageController object
  
  ## Helpers
